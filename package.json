@@ -8,5 +8,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "http-errors": "^2.0.0",
+    "jade": "^1.11.0",
+    "mongoose": "^8.5.2",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  }
 }
