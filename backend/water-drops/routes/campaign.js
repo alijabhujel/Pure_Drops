@@ -5,6 +5,9 @@ const router = express.Router();
         res.send("Campaign");
       });
 
+
+      
+
   //route to get all campaigns
   router.get('/', async(req, res) => {
     try{
