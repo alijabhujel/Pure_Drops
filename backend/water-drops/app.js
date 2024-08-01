@@ -11,8 +11,6 @@ var workShopRouter = require("./routes/workshop");
 var filtrationRouter = require("./routes/filtration");
 var campaignRoutes = require("./routes/campaign");
 
-
-
 var mongoose = require("mongoose");
 var app = express();
 mongoose.connect("mongodb://localhost/Pure_drop").then(() => {
