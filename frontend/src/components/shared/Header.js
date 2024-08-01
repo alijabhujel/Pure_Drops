@@ -3,28 +3,27 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 const navIteminfo = [
-  { name: "Home", type: "link" },
-  { name: "Filtration", type: "dropdown",items:["Stool , Harvest"] },
-  { name: "Games", type: "link" },
-  { name: "Quiz", type: "link" },
-  { name: "Workshop", type: "link" },
+  { name: "Home", type: "link", href: "/" },
+  { name: "Filtration", type: "dropdown", items: [{ title: "Stool", href: "/stool" }, { title: "Harvest", href: "/harvest" }] },
+  { name: "Games", type: "link", href: "/games" },
+  { name: "Quiz", type: "link", href: "/quiz" },
+  { name: "Workshop", type: "link", href: "/workshop" },
 ];
 
-const NavItem = ({ name }) => {
+const NavItem = ({ item }) => {
   const [dropdown, setDropdown] = useState(false);
 
   const toggleDropdownHandler = () => {
-    setDropdown((curState) => {
-      return !curState;
-    });
+    setDropdown((curState) => !curState);
   };
+
   return (
     <li className="relative group">
       {item.type === "link" ? (
         <>
-          <Link to={item.href} className="px-4 py-2">
+          <a href={item.href} className="px-4 py-2">
             {item.name}
-          </Link>
+          </a>
           <span className="cursor-pointer text-blue-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">
             /
           </span>
@@ -45,13 +44,13 @@ const NavItem = ({ name }) => {
           >
             <ul className="bg-dark-soft lg:bg-transparent text-center flex flex-col shadow-lg rounded-lg overflow-hidden">
               {item.items.map((page, index) => (
-                <Link
+                <a
                   key={index}
-                  to={page.href}
+                  href={page.href}
                   className="hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft"
                 >
                   {page.title}
-                </Link>
+                </a>
               ))}
             </ul>
           </div>
@@ -90,9 +89,9 @@ const Header = () => {
             navIsVisible ? "right-0" : "-right-full"
           } transition-all duration-300 mt-[56px] lg:mt-0 bg-dark-hard lg:bg-transparent z-[49] flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static gap-x-9 items-center`}
         >
-          <ul className="flex gap-x-12 lg:text-dark-soft flex flex-col lg:flex-row gap-x-2 font-semibold">
+          <ul className="flex gap-x-12 lg:text-dark-soft flex-col lg:flex-row font-semibold">
             {navIteminfo.map((item) => (
-              <NavItem key={item.name} name={item.name} />
+              <NavItem key={item.name} item={item} /> // Pass 'item' object
             ))}
           </ul>
           <button className='border-2 border-blue-500 px-6 py-2 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition-all duration-300'>
@@ -102,6 +101,6 @@ const Header = () => {
       </header>
     </section>
   );
-}
+};
 
 export default Header;
