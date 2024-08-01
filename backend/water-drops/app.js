@@ -7,10 +7,14 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var workShopRouter = require("./routes/workshop");
+
+var filtrationRouter = require("./routes/filtration");
+var campaignRoutes = require("./routes/campaign");
+
+
+
 var mongoose = require("mongoose");
-
 var app = express();
-
 mongoose.connect("mongodb://localhost/Pure_drop").then(() => {
   console.log("connected to db");
 });
@@ -26,8 +30,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/workshop", workShopRouter);
+app.use("/users",usersRouter);
+app.use("/workshop",workShopRouter);
+app.use("/campaign",campaignRoutes);
+app.use("/filtration",filtrationRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -46,3 +53,5 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+
