@@ -4,9 +4,6 @@ const WorkshopForm = require("../models/WorkshopForm");
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /* GET workshop page. */
-router.get("/", function (req, res, next) {
-  res.send("Welcome to the workshop page");
-});
 
 router.post("/", async function (req, res, next) {
   const { name, email, message } = req.body;
@@ -39,4 +36,25 @@ router.post("/", async function (req, res, next) {
   }
 });
 
+router.get("/", async function (req, res, next) {
+  try {
+    const message = await WorkshopForm.find({});
+    res.status(200).json(message);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Failed to get message", details: error.message });
+  }
+});
+router.delete("/:id", async function (req, res, next) {
+  try {
+    const messageId = req.params.id;
+    await WorkshopForm.findByIdAndDelete(messageId);
+    res.status(200).json({ message: "Message deleted successfulyy" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Failed to delete message", details: error.message });
+  }
+});
 module.exports = router;
