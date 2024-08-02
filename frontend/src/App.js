@@ -1,19 +1,11 @@
-
-//import Home from './components/ui/Home.js';
-import React from 'react';
-import Quiz from './components/ui/Quiz.jsx';
-import QuizHolder from './components/context/QuizHolder.jsx';
-
-import './App.css';
+import Game from "./components/ui/game/Game.jsx";
+// import Home from "./components/ui/Home.js";
 
 function App() {
   return (
-   <QuizHolder>
-<div className="App">
-     <Quiz/>
-   </div>
-   </QuizHolder>
-   
+    <div className="App font-opensans">
+      <Game />
+    </div>
   );
 }
 
