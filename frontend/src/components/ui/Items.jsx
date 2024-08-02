@@ -1,15 +1,12 @@
 import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 
-// Adjust these paths according to your file structure
-// import sandImg from "images/sand.jpg";
-// import charcoalImg from "images/charcoal.webp";
-// import pebblesImg from "images/pebbles.jpg";
-
 const imageMap = {
-  1:'images/pebbles.jpg',
-  2: 'images/gravel.jpg',
-  3: 'images/charcoal.webp',
+  1: "images/cotton.jpg",
+  2: "images/sand.jpg",
+  3: "images/charcoal.webp",
+  4: "images/gravel.jpg",
+  5: "images/pebbles.jpg",
 };
 
 const Items = ({ id }) => {
@@ -27,12 +24,12 @@ const Items = ({ id }) => {
       {...attributes}
       {...listeners}
       style={style}
-      className="flex items-center justify-center p-2 mb-2 bg-white border rounded shadow-lg cursor-move"
+      className="flex items-center justify-center"
     >
       <img
         src={imageMap[id]}
         alt={`Item ${id}`}
-        className="w-auto h-auto max-w-full max-h-full object-contain" // Ensure image scales correctly
+        className="w-64 h-24 object-cover"
       />
     </div>
   );

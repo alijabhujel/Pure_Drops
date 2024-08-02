@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { closestCorners, DndContext } from "@dnd-kit/core";
 import Column from "./Column";
 import { arrayMove } from "@dnd-kit/sortable";
-import badgeImg from "../../../assets/game/bagde.png";
 
-
-
-const correctOrder = [1, 2, 3];
+const correctOrder = [5, 4, 3, 2, 1];
 
 export default function Games() {
   const [tasks, setTasks] = useState([
-    { id: 2, title: "Cotton" },
-    { id: 3, title: "Wool" },
-    { id: 1, title: "Sand" },
+    { id: 3, title: "Charcoal" },
+    { id: 1, title: "Cotton" },
+    { id: 2, title: "Sand" },
+    { id: 4, title: "Gravel" },
+    { id: 5, title: "Pebble" },
   ]);
 
   const [isCorrectOrder, setIsCorrectOrder] = useState(false);
@@ -39,28 +38,31 @@ export default function Games() {
   };
 
   return (
-<<<<<<< HEAD:frontend/src/components/ui/game/Game.jsx
-    <div className="p-8 bg-gray-200 min-h-screen flex flex-col items-center justify-center">
-      {isCorrectOrder && (
-        <div className="mb-4">
-          <img
-            src={badgeImg}
-            alt="Badge"
-            className="w-32 h-32 object-contain"
-          />
-        </div>
-      )}
-=======
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-4">Filtration</h1>
-      <p>Rearrange in correct order</p>
->>>>>>> 969d21b990e64852e81b5da358f100e31779bc7d:frontend/src/components/ui/Games.jsx
+    <div className="p-8 bg-gradient-to-r from-blue-100 to-green-100 min-h-screen flex flex-col items-center">
+      <h1 className="text-4xl font-bold mb-4 text-gray-800">Filtration Game</h1>
+      <p className="text-lg mb-6 text-gray-600">
+        Rearrange the components in the correct order.
+      </p>
       <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
         <Column tasks={tasks} />
       </DndContext>
       {isCorrectOrder && (
-        <div className="mt-4 p-2 bg-green-200 text-green-800 rounded">
-          Correct Order!
+        <div className="mt-4 p-4 bg-green-300 text-green-800 rounded-lg shadow-lg flex items-center">
+          <svg
+            className="w-6 h-6 mr-2 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+          <span className="text-xl font-semibold">Correct Order! 🎉</span>
         </div>
       )}
     </div>
