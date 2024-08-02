@@ -1,29 +1,35 @@
 import React, { useState } from 'react';
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { Link, useLocation } from 'react-router-dom';
 
 const navIteminfo = [
-  { name: "Home", type: "link", href: "/" },
-  { name: "Filtration", type: "dropdown", items: [{ title: "Stool", href: "/stool" }, { title: "Harvest", href: "/harvest" }] },
+  { name: "Home", type: "link", href: "/home" },
+  { name: "Filtration", type: "dropdown", items: [{ title: "Clay Vessel", href: "/Clayvessel" }, { title: "Cloth Filter", href: "/Clothfilter" }] },
   { name: "Games", type: "link", href: "/games" },
   { name: "Quiz", type: "link", href: "/quiz" },
   { name: "Workshop", type: "link", href: "/workshop" },
 ];
 
 const NavItem = ({ item }) => {
+  const location = useLocation();  // Get the current location
+
   const [dropdown, setDropdown] = useState(false);
 
   const toggleDropdownHandler = () => {
     setDropdown((curState) => !curState);
   };
 
+  const isActive = item.href === location.pathname;  // Check if the current path matches the item href
+
   return (
     <li className="relative group">
       {item.type === "link" ? (
         <>
-          <a href={item.href} className="px-4 py-2">
+          {/* Changed 'a' to 'Link' and added conditional class for active link */}
+          <Link to={item.href} className={`px-4 py-2 ${isActive ? 'text-blue-500' : 'hover:text-blue-500'}`}>
             {item.name}
-          </a>
+          </Link>
           <span className="cursor-pointer text-blue-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">
             /
           </span>
@@ -31,7 +37,7 @@ const NavItem = ({ item }) => {
       ) : (
         <div className="flex flex-col items-center">
           <button
-            className="px-4 py-2 flex gap-x-1 items-center"
+            className="px-4 py-2 flex gap-x-1 items-center hover:text-blue-500"
             onClick={toggleDropdownHandler}
           >
             <span>{item.name}</span>
@@ -44,13 +50,14 @@ const NavItem = ({ item }) => {
           >
             <ul className="bg-dark-soft lg:bg-transparent text-center flex flex-col shadow-lg rounded-lg overflow-hidden">
               {item.items.map((page, index) => (
-                <a
+                // Changed 'a' to 'Link' and added conditional class for active link
+                <Link
                   key={index}
-                  href={page.href}
-                  className="hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft"
+                  to={page.href}
+                  className={`hover:bg-dark-hard hover:text-blue-500 px-4 py-2 text-white lg:text-dark-soft ${page.href === location.pathname ? 'text-blue-500' : ''}`}
                 >
                   {page.title}
-                </a>
+                </Link>
               ))}
             </ul>
           </div>
@@ -62,6 +69,7 @@ const NavItem = ({ item }) => {
 
 const Header = () => {
   const [navIsVisible, setNavIsVisible] = useState(false);
+  const location = useLocation();  // Get the current location
 
   const navVisibilityHandler = () => {
     setNavIsVisible((curState) => !curState);
