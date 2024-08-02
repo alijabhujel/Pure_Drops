@@ -8,6 +8,7 @@ import Clothfilter from "./components/ui/Clothfilter";
 import Header from "./components/shared/Header";
 import WorkshopForm from "./components/ui/WorkshopForm";
 import AdminDashboard from "./components/auth/AdminDashboard";
+import AddMethods from "./components/auth/AddMethods";
 import QuizHolder from "./components/context/QuizHolder";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Clothfilter" element={<Clothfilter />} />
         <Route path="/WorkShop" element={<WorkshopForm />} />
         <Route path="/AdminDashboard" element={<AdminDashboard />} />
+        <Route path="/AdminDashboard/AddMethods" element={<AddMethods />} />
       </Routes>
     </>
   );
