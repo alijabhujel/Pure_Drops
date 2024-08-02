@@ -2,14 +2,14 @@ import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 
 // Adjust these paths according to your file structure
-import sandImg from "../../../assets/game/sand.jpg";
-import charcoalImg from "../../../assets/game/charcoal.webp";
-import pebblesImg from "../../../assets/game/pebbles.jpg";
+// import sandImg from "images/sand.jpg";
+// import charcoalImg from "images/charcoal.webp";
+// import pebblesImg from "images/pebbles.jpg";
 
 const imageMap = {
-  1: pebblesImg,
-  2: charcoalImg,
-  3: sandImg,
+  1:'images/pebbles.jpg',
+  2: 'images/gravel.jpg',
+  3: 'images/charcoal.webp',
 };
 
 const Items = ({ id }) => {

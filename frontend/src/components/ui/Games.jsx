@@ -3,9 +3,11 @@ import { closestCorners, DndContext } from "@dnd-kit/core";
 import Column from "./Column";
 import { arrayMove } from "@dnd-kit/sortable";
 
+
+
 const correctOrder = [1, 2, 3];
 
-const App = () => {
+export default function Games() {
   const [tasks, setTasks] = useState([
     { id: 2, title: "Cotton" },
     { id: 3, title: "Wool" },
@@ -38,7 +40,7 @@ const App = () => {
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold mb-4">Filtration</h1>
-      <p>Rearrage in correct order</p>
+      <p>Rearrange in correct order</p>
       <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
         <Column tasks={tasks} />
       </DndContext>
@@ -49,6 +51,4 @@ const App = () => {
       )}
     </div>
   );
-};
-
-export default App;
+}
