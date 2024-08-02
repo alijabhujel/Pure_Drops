@@ -7,7 +7,7 @@ const navIteminfo = [
   { name: "Home", type: "link", href: "/home" },
   { name: "Filtration", type: "dropdown", items: [{ title: "Clay Vessel", href: "/Clayvessel" }, { title: "Cloth Filter", href: "/Clothfilter" }] },
   { name: "Games", type: "link", href: "/games" },
-  { name: "Quiz", type: "link", href: "/quiz" },
+  { name: "Quizholder", type: "link", href: "/Quizholder" },
   { name: "Workshop", type: "link", href: "/workshop" },
 ];
 

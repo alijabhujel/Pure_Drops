@@ -1,37 +1,15 @@
-import React, {useContext, useState} from 'react';
-import {QuizContent} from '../../components/context/QuizHolder';
-import Result from '../../components/ui/Result';
+import React, { useState } from 'react';
 
-export default function Quiz(){
-    const { exit, started, setStarted } = useContext(QuizContent);
-
-    return (
-
-        <div className='quiz-section'>
-            {!started ? (
-                <button onClick={() => setStarted(true)} className='start-button'>
-                    Start Quiz
-                </button>
-            ) : (
-                !exit ? <QuizBox /> : <Result />
-            )}
-        </div>
-    );
-    
-}
-
-
-const QuizBox = () => {
-    const { quizzes, correct, setCorrect, setExit } = useContext(QuizContent);
+const Quiz = ({ quizzes, correct, setCorrect, setExit }) => {
     const [current, setCurrent] = useState(0);
     const [ans, setAns] = useState("");
 
     const saveHandler = () => {
-        if (quizzes[current].correct === ans) {
+        if (quizzes[current]?.correct === ans) {
             setCorrect(correct + 1);
         }
         setAns("");
-        if ((current + 1) === quizzes.length) {
+        if (current + 1 === quizzes.length) {
             setExit(true);
         } else {
             setCurrent(current + 1);
@@ -39,21 +17,58 @@ const QuizBox = () => {
     };
 
     return (
-        <div className='w-[40%] border shadow-lg rounded-md overflow-hidden'>
-            <div className='p-2 text-3xl'> {current + 1}) {quizzes[current].question}</div>
-            <div className='grid grid-cols-2 mt-3'>
-                <div className={`p-2 border ${ans === "a" ? 'bg-blue-400 text-white' : ''} hover:bg-blue-400 hover:text-white duration-200 cursor-pointer`} onClick={() => setAns("a")}>{quizzes[current].a}</div>
-                <div className={`p-2 border ${ans === "b" ? 'bg-blue-400 text-white' : ''} hover:bg-blue-400 hover:text-white duration-200 cursor-pointer`} onClick={() => setAns("b")}>{quizzes[current].b}</div>
-                <div className={`p-2 border ${ans === "c" ? 'bg-blue-400 text-white' : ''} hover:bg-blue-400 hover:text-white duration-200 cursor-pointer`} onClick={() => setAns("c")}>{quizzes[current].c}</div>
-                <div className={`p-2 border ${ans === "d" ? 'bg-blue-400 text-white' : ''} hover:bg-blue-400 hover:text-white duration-200 cursor-pointer`} onClick={() => setAns("d")}>{quizzes[current].d}</div>
+        <div className='w-[60%] p-8 bg-white border shadow-lg rounded-md'>
+            <div className='mb-6 text-3xl font-semibold'>
+                {current + 1}. {quizzes[current]?.question}
+            </div>
+            <div className='grid grid-cols-2 gap-4 mb-6'>
+                <div
+                    className={`p-4 border ${ans === "a" ? 'bg-blue-400 text-white' : ''} hover:bg-blue-400 hover:text-white duration-200 cursor-pointer`}
+                    onClick={() => setAns("a")}
+                >
+                    {quizzes[current]?.a}
+                </div>
+                <div
+                    className={`p-4 border ${ans === "b" ? 'bg-blue-400 text-white' : ''} hover:bg-blue-400 hover:text-white duration-200 cursor-pointer`}
+                    onClick={() => setAns("b")}
+                >
+                    {quizzes[current]?.b}
+                </div>
+                <div
+                    className={`p-4 border ${ans === "c" ? 'bg-blue-400 text-white' : ''} hover:bg-blue-400 hover:text-white duration-200 cursor-pointer`}
+                    onClick={() => setAns("c")}
+                >
+                    {quizzes[current]?.c}
+                </div>
+                <div
+                    className={`p-4 border ${ans === "d" ? 'bg-blue-400 text-white' : ''} hover:bg-blue-400 hover:text-white duration-200 cursor-pointer`}
+                    onClick={() => setAns("d")}
+                >
+                    {quizzes[current]?.d}
+                </div>
             </div>
             <div className='flex justify-between'>
-                <div className='cursor-pointer h-[30px] px-3 bg-purple-500 text-white' onClick={() => setAns("")}>Reset</div>
-                <div className='cursor-pointer h-[30px] px-3 bg-green-500 text-white' onClick={saveHandler}>Save & Next</div>
-                <div className='cursor-pointer h-[30px] px-3 bg-red-500 text-white' onClick={() => setExit(true)}>Exit</div>
-                
+                <div
+                    className='px-4 py-2 text-white bg-purple-500 rounded cursor-pointer hover:bg-purple-700'
+                    onClick={() => setAns("")}
+                >
+                    Reset
+                </div>
+                <div
+                    className='px-4 py-2 text-white bg-green-500 rounded cursor-pointer hover:bg-green-700'
+                    onClick={saveHandler}
+                >
+                    Save & Next
+                </div>
+                <div
+                    className='px-4 py-2 text-white bg-red-500 rounded cursor-pointer hover:bg-red-700'
+                    onClick={() => setExit(true)}
+                >
+                    Exit
+                </div>
             </div>
         </div>
     );
 };
 
+export default Quiz;
