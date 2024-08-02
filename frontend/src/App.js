@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import Login from './components/auth/Login'; // Adjust the import path as needed
-
-const App = () => {
-    return (
-        <div className="App">
-            <Login />
-        </div>
-    );
-};
-=======
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/ui/Home";
@@ -18,6 +6,7 @@ import Quiz from "./components/ui/Quiz";
 import Clayvessel from "./components/ui/Clayvessel";
 import Clothfilter from "./components/ui/Clothfilter";
 import Header from "./components/shared/Header";
+import Admin from "./components/auth/AdminPanel"
 
 function App() {
   return (
@@ -31,10 +20,11 @@ function App() {
         <Route exact path="/Quiz" element={<Quiz />} />
         <Route exact path="/Clayvessel" element={<Clayvessel />} />
         <Route exact path="/Clothfilter" element={<Clothfilter />} />
+        <Route exact path="/Admin" element={<Admin />} />
+
       </Routes>
     </>
   );
 }
->>>>>>> dev
 
 export default App;
