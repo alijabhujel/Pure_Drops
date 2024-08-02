@@ -1,12 +1,12 @@
-import Game from "./components/ui/game/Game.jsx";
-// import Home from "./components/ui/Home.js";
+import React from 'react';
+import Login from './components/auth/Login'; // Adjust the import path as needed
 
-function App() {
-  return (
-    <div className="App font-opensans">
-      <Game />
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div className="App">
+            <Login />
+        </div>
+    );
+};
 
 export default App;

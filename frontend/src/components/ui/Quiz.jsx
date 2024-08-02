@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {QuizContent} from '../../components/context/QuizHolder';
+import QuizHolder from '../context/QuizHolder';
 import Result from '../../components/ui/Result';
 
 export default function Quiz(){
@@ -51,7 +51,7 @@ const QuizBox = () => {
                 <div className='cursor-pointer h-[30px] px-3 bg-purple-500 text-white' onClick={() => setAns("")}>Reset</div>
                 <div className='cursor-pointer h-[30px] px-3 bg-green-500 text-white' onClick={saveHandler}>Save & Next</div>
                 <div className='cursor-pointer h-[30px] px-3 bg-red-500 text-white' onClick={() => setExit(true)}>Exit</div>
-                
+
             </div>
         </div>
     );
