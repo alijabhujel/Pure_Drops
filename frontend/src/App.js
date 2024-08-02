@@ -13,11 +13,10 @@ import Header from './components/shared/Header';
 
 function App() {
   return (
+    <>
     <div className="App font-opensans">
       <Game />
     </div>
-  );
-    <>
     <Header/>
     <Routes>
      
