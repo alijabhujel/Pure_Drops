@@ -5,7 +5,7 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-400 text-white py-3 px-4">
+    <footer className="bg-blue-500 text-white py-3 px-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-6">
         {/* Column 1: Logo and Project Name */}
         <div className="text-center md:text-left">

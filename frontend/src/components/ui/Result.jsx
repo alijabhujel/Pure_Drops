@@ -1,19 +1,23 @@
-import React, { useContext } from 'react'
-import { QuizContent } from '../../components/context/QuizHolder';
+import React from "react";
 
-export default function Result() {
-    const { correct, setExit, setStarted, quizzes } = useContext(QuizContent)
-    const playAgain = () => {
-        setExit(false);
-        setStarted(false);
-    }
+const Result = ({ correct }) => {
+  return (
+    <div className="flex flex-col items-center justify-center w-full h-full p-16 bg-white border shadow-lg rounded-md max-w-xl mx-auto">
+      <div className="flex items-center text-5xl font-bold mb-6 text-blue-500">
+        <span role="img" aria-label="confetti">
+          🎉
+        </span>
+        <span className="mx-3">Congratulations!</span>
+        <span role="img" aria-label="confetti">
+          🎉
+        </span>
+      </div>
+      <div className="text-3xl font-semibold mb-4">Quiz Completed</div>
+      <div className="text-2xl mt-4">
+        Your score is <span className="font-bold">{correct}</span>
+      </div>
+    </div>
+  );
+};
 
-    return (
-        <div className='w-full h-screen flex justify-center items-center'>
-            <div className='w-[40%] border shadow-lg rounded-md overflow-hidden text-center'>
-                <h2 className='text-2xl p-3 my-2'>{correct} are correct out of {quizzes.length}</h2>
-                <button onClick={playAgain} className='border border-orange-500 p-3 text-2xl rounded'>Play again</button>
-            </div>
-        </div>
-    );
-}
+export default Result;
