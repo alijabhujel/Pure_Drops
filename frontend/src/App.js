@@ -6,6 +6,7 @@ import Quiz from "./components/ui/Quiz";
 import Clayvessel from "./components/ui/Clayvessel";
 import Clothfilter from "./components/ui/Clothfilter";
 import Header from "./components/shared/Header";
+import WorkshopForm from "./components/ui/WorkshopForm";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/Quiz" element={<Quiz />} />
         <Route exact path="/Clayvessel" element={<Clayvessel />} />
         <Route exact path="/Clothfilter" element={<Clothfilter />} />
+        <Route exact path="/WorkShop" element={<WorkshopForm />} />
       </Routes>
     </>
   );
