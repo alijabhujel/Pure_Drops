@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineLogout } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import AdminSidebar from "./AdminSidebar"; // Import the new AdminSidebar component
 
 const AdminDashboard = () => {
   const [workshopRequests, setWorkshopRequests] = useState([]);
@@ -29,38 +29,29 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="h-screen bg-blue-500 text-white w-64 flex flex-col p-4">
-      <div className="flex items-center mb-6">
-        <img src="images/puredrops.png" alt="logo" className="h-12 w-auto" />
-        <h1 className="text-2xl font-bold ml-4">Admin</h1>
+    <div className="flex">
+      <AdminSidebar handleLogout={handleLogout} />
+      <div className="flex-grow p-4">
+        <h2 className="text-xl font-bold mb-4">Workshop Requests</h2>
+        <table className="w-full bg-white text-black rounded-lg shadow-md">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="p-2 border">Name</th>
+              <th className="p-2 border">Email</th>
+              <th className="p-2 border">Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            {workshopRequests.map((request) => (
+              <tr key={request._id}>
+                <td className="p-2 border">{request.name}</td>
+                <td className="p-2 border">{request.email}</td>
+                <td className="p-2 border">{request.message}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <nav className="flex-grow">
-        <ul className="space-y-4">
-          <li>
-            <Link
-              to="/AdminDashboard/"
-              className="block py-2 px-4 hover:bg-blue-500 rounded transition-colors duration-200"
-            >
-              Workshop Requests
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/AdminDashboard/AddMethods"
-              className="block py-2 px-4 hover:bg-blue-500 rounded transition-colors duration-200"
-            >
-              Add Methods
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <button
-        onClick={handleLogout}
-        className="flex items-center py-2 px-4 hover:bg-blue-500 rounded transition-colors duration-200 mt-auto"
-      >
-        <AiOutlineLogout className="mr-1" />
-        Logout
-      </button>
     </div>
   );
 };
