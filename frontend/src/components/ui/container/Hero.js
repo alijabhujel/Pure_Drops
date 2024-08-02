@@ -37,15 +37,15 @@ export default function Hero() {
         </div>
       </div>
       <div className="w-full bg-white shadow-lg">
-        <div className="container mx-auto flex items-center py-4">
-          <div className="w-1/2 pr-4">
+        <div className="container mx-auto py-8 flex flex-wrap">
+          <div className="w-full md:w-1/2 p-4">
             <img
               src="images/rain.jpg" // Replace with your actual image URL
               alt="Rainwater Harvesting"
               className="w-full h-auto object-cover"
             />
           </div>
-          <div className="w-1/2 pl-4">
+          <div className="w-full md:w-1/2 p-4">
             <h3 className="text-2xl font-bold mb-2 text-blue-500">
               Rainwater Harvesting
             </h3>
