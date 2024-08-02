@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { closestCorners, DndContext } from "@dnd-kit/core";
 import Column from "./Column";
 import { arrayMove } from "@dnd-kit/sortable";
+import badgeImg from "../../../assets/game/bagde.png";
 
 const correctOrder = [1, 2, 3];
 
@@ -36,9 +37,16 @@ const App = () => {
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-4">Filtration</h1>
-      <p>Rearrage in correct order</p>
+    <div className="p-8 bg-gray-200 min-h-screen flex flex-col items-center justify-center">
+      {isCorrectOrder && (
+        <div className="mb-4">
+          <img
+            src={badgeImg}
+            alt="Badge"
+            className="w-32 h-32 object-contain"
+          />
+        </div>
+      )}
       <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
         <Column tasks={tasks} />
       </DndContext>
