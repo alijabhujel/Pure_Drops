@@ -4,9 +4,11 @@ import Column from "./Column";
 import { arrayMove } from "@dnd-kit/sortable";
 import badgeImg from "../../../assets/game/bagde.png";
 
+
+
 const correctOrder = [1, 2, 3];
 
-const App = () => {
+export default function Games() {
   const [tasks, setTasks] = useState([
     { id: 2, title: "Cotton" },
     { id: 3, title: "Wool" },
@@ -37,6 +39,7 @@ const App = () => {
   };
 
   return (
+<<<<<<< HEAD:frontend/src/components/ui/game/Game.jsx
     <div className="p-8 bg-gray-200 min-h-screen flex flex-col items-center justify-center">
       {isCorrectOrder && (
         <div className="mb-4">
@@ -47,6 +50,11 @@ const App = () => {
           />
         </div>
       )}
+=======
+    <div className="p-8 bg-gray-100 min-h-screen">
+      <h1 className="text-3xl font-bold mb-4">Filtration</h1>
+      <p>Rearrange in correct order</p>
+>>>>>>> 969d21b990e64852e81b5da358f100e31779bc7d:frontend/src/components/ui/Games.jsx
       <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
         <Column tasks={tasks} />
       </DndContext>
@@ -57,6 +65,4 @@ const App = () => {
       )}
     </div>
   );
-};
-
-export default App;
+}
