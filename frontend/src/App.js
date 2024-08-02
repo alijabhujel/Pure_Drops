@@ -7,6 +7,7 @@ import Clayvessel from "./components/ui/Clayvessel";
 import Clothfilter from "./components/ui/Clothfilter";
 import Header from "./components/shared/Header";
 import Admin from "./components/auth/AdminPanel"
+import WorkshopForm from "./components/ui/WorkshopForm";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/Clothfilter" element={<Clothfilter />} />
         <Route exact path="/Admin" element={<Admin />} />
 
+        <Route exact path="/WorkShop" element={<WorkshopForm />} />
       </Routes>
     </>
   );
