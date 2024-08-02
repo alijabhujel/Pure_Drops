@@ -1,10 +1,10 @@
-import WorkshopForm from "./components/ui/WorkshopForm.js";
-import Home from "./components/ui/Home.js";
+import Game from "./components/ui/game/Game.jsx";
+// import Home from "./components/ui/Home.js";
 
 function App() {
   return (
     <div className="App font-opensans">
-      <WorkshopForm />
+      <Game />
     </div>
   );
 }
