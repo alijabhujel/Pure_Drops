@@ -27,9 +27,9 @@ export default function Hero() {
           {/* Image on the Left */}
           <div className="w-full md:w-1/2">
             <img
-              src="images/workshop.jpg" // Replace with your actual image URL
+              src="images/workshop.png" // Replace with your actual image URL
               alt="Workshop on Safe Drinking Water"
-              className="w-full h-auto object-cover"
+              className="w-full h-64 object-cover px-4"
             />
           </div>
 

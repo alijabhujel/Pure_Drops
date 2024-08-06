@@ -50,6 +50,7 @@ export default function Clayvessel() {
           </h2>
         </div>
         {/* YouTube Video */}
+
         <iframe
           width="100%"
           height="100%"
