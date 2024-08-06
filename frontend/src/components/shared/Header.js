@@ -14,7 +14,7 @@ const navIteminfo = [
     ],
   },
   { name: "Games", type: "link", href: "/games" },
-  { name: "Quizholder", type: "link", href: "/Quizholder" },
+  { name: "Quiz", type: "link", href: "/Quizholder" },
   { name: "Workshop", type: "link", href: "/workshop" },
 ];
 
